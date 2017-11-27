@@ -54,14 +54,15 @@ function sanitySpanToRawSlateBlockNode(span, sanityBlock) {
       annotations[annotation._type] = annotation
     })
   }
-  const range = {
-    kind: 'range',
+
+  const leaf = {
+    kind: 'leaf',
     text: text,
     marks: decorators.map(toRawMark)
   }
 
   if (!annotations) {
-    return {kind: 'text', key: span._key, ranges: [range]}
+    return {kind: 'text', key: span._key, leaves: [leaf]}
   }
 
   return {
@@ -69,8 +70,7 @@ function sanitySpanToRawSlateBlockNode(span, sanityBlock) {
     isVoid: false,
     key: span._key,
     type: 'span',
-    data: {annotations},
-    nodes: [{kind: 'text', key: `${span._key}0`, ranges: [range]}]
+    nodes: [{kind: 'text', key: `${span._key}0`, leaves: [leaf]}]
   }
 }
 

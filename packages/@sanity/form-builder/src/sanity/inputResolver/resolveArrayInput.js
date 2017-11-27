@@ -1,5 +1,5 @@
 import OptionsArray from '../../inputs/OptionsArray/OptionsArray'
-import BlockEditor from '../../inputs/BlockEditor-slate'
+import BlockEditor from '../../inputs/BlockEditor'
 import ArrayOfPrimitivesInput from '../../inputs/ArrayOfPrimitives/ArrayOfPrimitives'
 import TagsArrayInput from '../../inputs/TagsArray/TagsArray'
 import * as is from '../../utils/is'
