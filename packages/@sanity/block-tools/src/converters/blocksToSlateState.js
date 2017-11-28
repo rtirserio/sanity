@@ -70,6 +70,7 @@ function sanitySpanToRawSlateBlockNode(span, sanityBlock) {
     isVoid: false,
     key: span._key,
     type: 'span',
+    data: {annotations},
     nodes: [{kind: 'text', key: `${span._key}0`, leaves: [leaf]}]
   }
 }

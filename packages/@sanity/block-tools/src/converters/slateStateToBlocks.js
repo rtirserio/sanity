@@ -35,11 +35,11 @@ function toSanitySpan(node, sanityBlock, spanIndex) {
         })
       }
       return nodesNode.leaves
-        .map(range => ({
+        .map(leaf => ({
           _type: 'span',
           _key: `${sanityBlock._key}${spanIndex()}`,
-          text: range.text,
-          marks: range.marks.map(mark => mark.type).concat(annotationKeys),
+          text: leaf.text,
+          marks: leaf.marks.map(mark => mark.type).concat(annotationKeys),
         }))
     }))
   }

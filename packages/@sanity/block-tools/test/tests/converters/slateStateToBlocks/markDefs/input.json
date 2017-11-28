@@ -15,7 +15,7 @@
         "nodes": [
           {
             "kind": "text",
-            "ranges": [{ "kind": "range", "text": "", "marks": [] }]
+            "leaves": [{ "kind": "leaf", "text": "", "marks": [] }]
           },
           {
             "kind": "inline",
@@ -33,13 +33,13 @@
             "nodes": [
               {
                 "kind": "text",
-                "ranges": [{ "kind": "range", "text": "Link", "marks": [] }]
+                "leaves": [{ "kind": "leaf", "text": "Link", "marks": [] }]
               }
             ]
           },
           {
             "kind": "text",
-            "ranges": [{ "kind": "range", "text": "", "marks": [] }]
+            "leaves": [{ "kind": "leaf", "text": "", "marks": [] }]
           }
         ]
       }

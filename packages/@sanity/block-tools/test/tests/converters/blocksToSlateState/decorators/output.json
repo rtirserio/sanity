@@ -18,9 +18,9 @@
           {
             "key": "randomKey0",
             "kind": "text",
-            "ranges": [
+            "leaves": [
               {
-                "kind": "range",
+                "kind": "leaf",
                 "text": "Bold ",
                 "marks": [{ "kind": "mark", "type": "strong" }]
               }
@@ -29,9 +29,9 @@
           {
             "key": "randomKey1",
             "kind": "text",
-            "ranges": [
+            "leaves": [
               {
-                "kind": "range",
+                "kind": "leaf",
                 "text": "italic",
                 "marks": [
                   { "kind": "mark", "type": "strong" },
@@ -56,9 +56,9 @@
           {
             "key": "randomKey2",
             "kind": "text",
-            "ranges": [
+            "leaves": [
               {
-                "kind": "range",
+                "kind": "leaf",
                 "text": "Italic",
                 "marks": [{ "kind": "mark", "type": "em" }]
               }
@@ -80,9 +80,9 @@
           {
             "key": "randomKey3",
             "kind": "text",
-            "ranges": [
+            "leaves": [
               {
-                "kind": "range",
+                "kind": "leaf",
                 "text": "Code",
                 "marks": [{ "kind": "mark", "type": "code" }]
               }
