@@ -10,4 +10,4 @@ export {FormBuilderInput} from '../FormBuilderInput'
 export {checkout} from './formBuilderValueStore'
 export {default as PatchEvent} from '../PatchEvent'
 export {patches}
-export {BlockEditor} from '..'
+export {default as BlockEditor} from '../inputs/BlockEditor'
