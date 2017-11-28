@@ -1,0 +1,9 @@
+@import "part:@sanity/base/theme/variables-style";
+
+.blockDragMarker {
+  background-color: var(--brand-primary);
+  width: 100%;
+  height: 2px;
+  position: absolute;
+}
+

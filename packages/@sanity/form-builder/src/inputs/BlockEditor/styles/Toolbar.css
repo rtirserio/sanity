@@ -1,0 +1,18 @@
+.root {
+  @nest .fullscreen & {
+    position: fixed;
+    box-sizing: border-box;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background-color: color(var(--blockEditorFullscreenBackground) a(90%));
+    padding: var(--small-padding);
+    height: 4rem;
+
+    @media (--screen-medium) {
+      padding: var(--medium-padding);
+    }
+  }
+}

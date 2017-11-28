@@ -7,7 +7,7 @@ import React from 'react'
 import blockTools from '@sanity/block-tools'
 import generateHelpUrl from '@sanity/generate-help-url'
 import FormField from 'part:@sanity/components/formfields/default'
-import BlockEditor from './BlockEditor'
+import Input from './Input'
 import {throttle} from 'lodash'
 import {Value} from 'slate'
 import PatchEvent, {set, unset} from '../../PatchEvent'
@@ -129,13 +129,13 @@ export default withPatchSubscriber(class SyncWrapper extends React.PureComponent
   }
 
   focus() {
-    if (this._blockEditor) {
-      this._blockEditor.focus()
+    if (this._input) {
+      this._input.focus()
     }
   }
 
-  setBlockEditor = el => {
-    this._blockEditor = el
+  setInput = el => {
+    this._input = el
   }
 
   handleSynchronize = () => {
@@ -164,13 +164,13 @@ export default withPatchSubscriber(class SyncWrapper extends React.PureComponent
     return (
       <div className={styles.root}>
         {!isDeprecated && (
-          <BlockEditor
+          <Input
             {...this.props}
             disabled={isOutOfSync}
             onChange={this.handleChange}
             onNodePatch={this.handleNodePatch}
             value={value}
-            ref={this.setBlockEditor}
+            ref={this.setInput}
           />)
         }
 
