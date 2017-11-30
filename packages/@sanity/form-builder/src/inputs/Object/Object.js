@@ -99,7 +99,7 @@ export default class ObjectInput extends React.PureComponent {
           description={fieldset.description}
           level={level + 1}
           columns={columns}
-          isExpanded={collapsable === false || isExpanded}
+          collapsable={collapsable === false || isExpanded}
         >
           {fieldset.fields.map((field, fieldIndex) => {
             return this.renderField(field, level + 2, fieldsetIndex + fieldIndex)

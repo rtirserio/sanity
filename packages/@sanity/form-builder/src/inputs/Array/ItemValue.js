@@ -7,8 +7,8 @@ import styles from './styles/ItemValue.css'
 import ConfirmButton from './ConfirmButton'
 import LinkIcon from 'part:@sanity/base/link-icon'
 
+import SimpleEditItemPopOver from '../common/SimpleEditItemPopOver'
 import EditItemFold from 'part:@sanity/components/edititem/fold'
-import EditItemPopOver from 'part:@sanity/components/edititem/popover'
 import FullscreenDialog from 'part:@sanity/components/dialogs/fullscreen'
 
 import {FormBuilderInput} from '../../FormBuilderInput'
@@ -141,7 +141,7 @@ export default class RenderItemValue extends React.Component<Props> {
       />
     )
 
-    // test focus issues by uncommenting the next line
+    // debug focus issues by uncommenting the next line
     // return content
 
     if (options.editModal === 'fullscreen') {
@@ -163,10 +163,39 @@ export default class RenderItemValue extends React.Component<Props> {
     }
 
     return (
-      <div className={styles.popupAnchor}>
-        <EditItemPopOver onClose={this.handleEditStop} key={item._key}>
-          {content}
-        </EditItemPopOver>
+      <SimpleEditItemPopOver onClose={this.handleEditStop} key={item._key}>
+        {content}
+      </SimpleEditItemPopOver>
+    )
+  }
+
+  renderExpandedItem() {
+    const {value, type} = this.props
+    const options = type.options || {}
+    const isGrid = options.layout === 'grid'
+    const previewLayout = isGrid ? 'media' : 'default'
+
+    return (
+      <div className={styles.expanded}>
+        <div className={styles.inner}>
+          <button className={styles.closeButton} type="button" onClick={this.handleEditStop}>
+            <span className={styles.arrow}>←</span>
+            <span className={styles.x}>×</span>
+          </button>
+          <div className={styles.expandedPreview}>
+            <FocusArea
+              tabIndex={0}
+              onClick={this.handleEditStart}
+              ref={this.setFocusArea}
+            >
+              <Preview
+                layout={previewLayout}
+                value={value}
+                type={this.getMemberType()}
+              />
+            </FocusArea>
+          </div>
+        </div>
       </div>
     )
   }
@@ -226,16 +255,13 @@ export default class RenderItemValue extends React.Component<Props> {
     const isExpanded = PathUtils.isExpanded(value, focusPath)
 
     return (
-      <div
-        className={isGrid ? styles.gridItem : styles.listItem}
-        ref={this.setElement}
-      >
-        {this.renderItem()}
+      <div>
         <div
-          className={options.editModal === 'fold' ? styles.editRootFold : styles.editRoot}
+          className={isGrid ? styles.gridItem : styles.listItem}
         >
-          {isExpanded && this.renderEditItemForm(value)}
+          {isExpanded ? this.renderExpandedItem() : this.renderItem()}
         </div>
+        {isExpanded && this.renderEditItemForm(value)}
       </div>
     )
   }

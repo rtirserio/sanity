@@ -364,6 +364,7 @@ export default class ArrayInput extends React.Component<Props, State> {
                 onChange={this.handleItemChange}
                 focusPath={focusPath}
                 onFocus={onFocus}
+                disableSort={options.sortable === true && !isSortable}
                 onBlur={onBlur}
               />
             </Item>
